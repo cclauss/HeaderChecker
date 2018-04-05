@@ -1,0 +1,6 @@
+# vrDisVlnCkr
+
+A tool to check if there is  **Version Disclosure Vulnerability**... on a host...
+
+### And Again, it's underdevelopment. 
+## So, Please wait for the thing...
