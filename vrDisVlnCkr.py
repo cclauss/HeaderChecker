@@ -50,8 +50,8 @@ try:
 	kyz = hdrz.keys()
 	print '\nRESPONSE HEADERS\n'
 	for k in hdrz: print k, ':', hdrz[k]
-	print '\nVULNERABILITIES\n'
 	if 'Server' in kyz and 'X-Powered-By' in kyz and 'X-AspNet-Version' in kyz:
+		print '\nVULNERABILITIES\n'
 		s = hdrz['Server']
 		for i in adgt:
 			if i in s:
@@ -72,6 +72,7 @@ try:
 				break
 
 	elif 'Server' in kyz and 'X-Powered-By' in kyz:
+		print '\nVULNERABILITIES\n'
 		s = hdrz['Server']
 		for i in adgt:
 			if i in s:
@@ -84,6 +85,7 @@ try:
 		print 'X-Powered-By:', xpb
 
 	elif 'Server' in kyz and 'X-AspNet-Version' in kyz:
+		print '\nVULNERABILITIES\n'
 		s = hdrz['Server']
 		for i in adgt:
 			if i in s:
@@ -101,30 +103,31 @@ try:
 				break
 
 	elif 'X-Powered-By' in kyz and 'X-AspNet-Version' in kyz:
-				xpb = hdrz['X-Powered-By']
-				print 'X-Powered-By:', xpb
+		print '\nVULNERABILITIES\n'
+		xpb = hdrz['X-Powered-By']
+		print 'X-Powered-By:', xpb
 
-				xanv = hdrz['X-AspNet-Version']
-				for i in adgt:
-					if i in xanv:
-						print 'X-AspNet-Version:', xanv
-						break
-					else:
-						break
+		xanv = hdrz['X-AspNet-Version']
+		for i in adgt:
+			if i in xanv:
+				print 'X-AspNet-Version:', xanv
+				break
+			else:
+				break
 	elif 'X-Powered-By' in kyz:
-			xpb = hdrz['X-Powered-By']
-			print 'X-Powered-By:', xpb
+		print '\nVULNERABILITIES\n'
+		xpb = hdrz['X-Powered-By']
+		print 'X-Powered-By:', xpb
 	elif 'X-AspNet-Version' in kyz:
-				xanv = hdrz['X-AspNet-Version']
-				for i in adgt:
-					if i in xanv:
-						print 'X-AspNet-Version:', xanv
-						break
-					else:
-						break
+		print '\nVULNERABILITIES\n'
+		xanv = hdrz['X-AspNet-Version']
+		for i in adgt:
+			if i in xanv:
+				print 'X-AspNet-Version:', xanv
+				break
+			else:
+				break
 	else:
-		print 'WednesdayThursdayFriday... See the headers below 😜\n'
-		for k in hdrz:
-			print k, ':', hdrz[k]
+		print '\nWednesdayThursdayFriday... See the headers up ⤊ 😜'
 except KeyboardInterrupt: print '\b\bInterruption from Keyboard...'
 except rex.ConnectionError: print 'Is it https??'
