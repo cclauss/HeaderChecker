@@ -9,7 +9,7 @@ from urlparse import urlparse
 import httplib, subprocess
 from requests.packages.urllib3 import disable_warnings as dsable_wrng
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
-from subprocess import check_call as ckal
+from time import sleep as slp
 from subprocess import call as kal
 from sys import exit as x
 
@@ -25,6 +25,12 @@ def is_conn():
     except Exception as e:
         print "Some Error: " ,e
 if is_conn():
+	if kal(['gnome-screenshot -h'], shell=True) == 127:
+		print '\033[H\033[Jgnome-screenshot Not Found... #INSTALLING(▼)\n'
+		print '\33]0;INSTALLING gnome-screenshot\7'
+		slp(2)
+		kal(['apt-get install gnome-screenshot -y'], shell=True)
+	else: pass
 	try:
 		def check_url(url):
 			url = urlparse(url)
@@ -85,12 +91,12 @@ if is_conn():
 			sts = hdrz['Strict-Transport-Security']
 			if 'max-age' in sts: pass
 			else: print 'Strict-Transport-Security:', sts
-
+		print '\033[H\033[J\33]0;HeaderChecker\7'
 		if len(arg) != 2:
 			inpt = raw_input('Enter the URL: ')
 		else:
 			inpt = arg[1]
-		print '\033[H\033[J'
+		print '\33]0;HeaderChecker: %s\7'%(inpt)
 		print '\033[92mChecking URL:\033[0m\033[15m', inpt, '\033[0m\033[92m'
 		if 'http://' in inpt:
 			if check_url(inpt):
@@ -136,11 +142,11 @@ if is_conn():
 			if 'Strict-Transport-Security' in kyz: c_sts()
 			else: print '✖ Strict-Transport-Security Header...'
 		else: print '\033[91mWednesdayThursdayFriday... See the headers up ⤊ 😜\033[0m'
-		try: ckal(['gnome-screenshot -w'], shell=True)
-		except subprocess.CalledProcessError:
+		if kal(['gnome-screenshot -w'], shell=True) == 127:
 			print 'gnome-screenshot Not Found... #INSTALLING(▼)'
+			slp(2)
 			kal(['apt-get install gnome-screenshot -y'], shell=True)
-		kal(['gnome-screenshot -w'], shell=True)
+		else: pass
 		print '\033[0m'
 	except KeyboardInterrupt: print '\b\b\033[91mInterruption from Keyboard...\033[0m'
 else: print '\033[91mAre You Serrous! No(✘) Internet()...\033[0m'
