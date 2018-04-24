@@ -8,7 +8,7 @@ A tool for kali _I mean Linux with Gnome_ to check if there is  **Version Disclo
 ## Installation
 ```git clone https://github.com/naryal2580/vrDisVlnCkr.git```
 And, Just Use it...
-If you are lazy enough to navigate towards the directory for running it then, You can just copy it to ```/bin``` or ```/usr/bin``` 
+If you are lazy enough to navigate towards the directory for running it then, You can just copy it to  ```/usr/bin``` 
 
 ## Usage 
 ```headerChecker demo.testfire.net```
